@@ -9,25 +9,41 @@
 
 	<body>
 		<h1>Product List:</h1>
+
+		<!-- Get the list of products from the database -->
+
 		<ol>
-			<li><button onclick="my_function(1)">Product 1</button></li>
-			<li><button onclick="my_function(2)">Product 2</button></li>
-			<li><button>Product 3</button></li>
-			<li><button>Product 4</button></li>
-			<li><button>Product 5</button></li>
-			<li><button>Product 6</button></li>
-			<li><button>Product 7</button></li>
-			<li><button>Product 8</button></li>
-			<li><button>Product 9</button></li>
-			<li><button>Product 10</button></li>
+			<form action="/single_product">
+				<li><button>Product 1</button><input type="hidden" name="SKU" value="1"></li>
+			</form>
+			<form action="/single_product">
+				<li><button>Product 2</button><input type="hidden" name="SKU" value="2"></li>
+			</form>
+			<form action="/single_product">
+				<li><button>Product 3</button><input type="hidden" name="SKU" value="3"></li>
+			</form>
+			<form action="/single_product">
+				<li><button>Product 4</button><input type="hidden" name="SKU" value="4"></li>
+			</form>
+			<form action="/single_product">
+				<li><button>Product 5</button><input type="hidden" name="SKU" value="5"></li>
+			</form>
+			<form action="/single_product">
+				<li><button>Product 6</button><input type="hidden" name="SKU" value="6"></li>
+			</form>
+			<form action="/single_product">
+				<li><button>Product 7</button><input type="hidden" name="SKU" value="7"></li>
+			</form>
+			<form action="/single_product">
+				<li><button>Product 8</button><input type="hidden" name="SKU" value="8"></li>
+			</form>
+			<form action="/single_product">
+				<li><button>Product 9</button><input type="hidden" name="SKU" value="9"></li>
+			</form>
+			<form action="/single_product">
+				<li><button>Product 10</button><input type="hidden" name="SKU" value="10"></li>
+			</form>
 		</ol>
-
-		<script type="text/javascript">
-			function my_function(SKU) {
-				window.location.href = 'single_product.html';
-			}
-		</script>
-
 	</body>
 
 </html>

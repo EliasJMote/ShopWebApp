@@ -55,9 +55,9 @@ module.exports = {
 		});
 	},
 
-	// Select one product for single prodeuct view
+	// Select one product for single product view
 	select_one_product: function(SKU) {
-		console.log(SKU);
+		console.log(`Select product with SKU = ` + SKU);
 		let db = open_db_connection();
 
 		let sql = `SELECT * FROM products WHERE SKU = ` + SKU
@@ -65,7 +65,7 @@ module.exports = {
 			if (err) {
 				return console.error(err.message);
 			}
-			console.log(row)
+			console.log(row);
 			//return row
 				//? console.log(row.SKU, row.title)
 				//: console.log(`No product found with the SKU $(SKU)`);
@@ -73,5 +73,17 @@ module.exports = {
 
 		close_db_connection(db);
 
+	}
+
+	count_products: function() {
+		let db = open_db_connection();
+
+		console.log("Count the number of products.");
+		db.get(`SELECT count(DISTINCT *) FROM products`, [], (err, row) => {
+			if (err) {
+				return console.error(err.message);
+			}
+			console.log(row);
+		});
 	}
 }

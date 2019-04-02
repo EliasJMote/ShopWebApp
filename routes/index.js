@@ -7,10 +7,10 @@ router.get('/', function(req, res, next) {
   //res.render('index', { title: 'Product List' });
 });
 
-/* GET SINGLE product. */
-router.get('/single_product.html', function(req, res, next) {
-	db_model.select_one_product(1);
-	res.send('hello world');
+/* GET single product. */
+router.get('/single_product*', function(req, res, next) {
+	let product = db_model.select_one_product(req.query.SKU);
+	res.send("Product number " + req.query.SKU);
 });
 
 module.exports = router;
