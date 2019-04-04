@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Sample Product List</title>
+		<link rel="stylesheet" href="./stylesheets/style.css">
+		<script src="./javascripts/vue.js"></script>
+	</head>
+
+	<body>
+		<header>
+			<h1>Product List:</h1>
+		</header>
+
+		<!-- Get the list of products from the database -->
+		<div class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div id="productList">
+					<div v-for="x in titles">
+						<h3>{{x}}</h3>
+					</div>
+					<div v-for="x in photos">
+						<h3>{{x}}</h3>
+					</div>
+					<div v-for="x in prices">
+						<h3>{{x}}</h3>
+					</div>
+					<div v-for="x in nums">
+						<img width="80px" src="./images/android_mic.png" alt="image"></img>
+
+						<form id='myform' action="/single_product">
+							<button>{{x.text}}</button>
+							<input type="hidden" name="SKU" :value="x.num"/>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer>
+			<section>
+				Sample about section
+			</section>
+		</footer>
+
+		<script type='text/javascript'>
+			
+			let productArr = [];
+
+			for (let i=1; i<=10; i=i+1){
+				let t = `Product ${i}`
+				productArr.push({text: t, num: i})
+			}
+
+			let productObjs = [];
+			let titles = [];
+			let photos = [];
+			let prices = [];
+
+			
+			<% products.forEach(function(product) { %>
+				titles.push(<%- JSON.stringify(product.title) %>);
+				photos.push(<%- JSON.stringify(product.product_photo) %>);
+				prices.push(<%- JSON.stringify(product.price) %>);
+			<% }); %>
+
+			//for (let j=0; j<=9; j=j+1){
+			let p = new Vue({
+				el: '#productList',
+				data: {
+					nums: productArr,
+					titles: titles,
+					photos: photos,
+					prices: prices,
+				}
+			})
+
+			console.log()
+		</script>
+	</body>
+
+</html>

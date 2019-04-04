@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Sample Product</title>
+		<link rel="stylesheet" href="./stylesheets/style.css">
+		<script src="./javascripts/vue.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<header>
+				<h1>Product: {{name}}</h1>
+			</header>
+			<img width="160px" :src="image" alt="productImage"></img>
+			<p>Product description: {{description}}</p>
+		</div>
+
+		<button>List view</button>
+
+		<footer>
+			<section>
+				Sample about section
+			</section>
+		</footer>
+		<script type='text/javascript'>
+		  	app = new Vue({
+		  		el: '#app',
+		  		data: {
+		  			name: <%- JSON.stringify(product.title) %>,
+		  			description: <%- JSON.stringify(product.description) %>,
+		  			image: "./images/" + <%- JSON.stringify(product.product_photo) %>
+		  		}
+		  	})
+		</script>
+	</body>
+
+</html>
